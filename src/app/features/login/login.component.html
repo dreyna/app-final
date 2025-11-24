@@ -1,0 +1,23 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="width: 25rem;">
+    <h4 class="text-center mb-3">Iniciar Sesión</h4>
+
+    @if (errorMessage) {
+      <div class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+    }
+
+    <div class="mb-3">
+      <label>Usuario</label>
+      <input class="form-control" [(ngModel)]="username">
+    </div>
+
+    <div class="mb-3">
+      <label>Contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="password">
+    </div>
+
+    <button class="btn btn-primary w-100" (click)="login()">Ingresar</button>
+  </div>
+</div>
