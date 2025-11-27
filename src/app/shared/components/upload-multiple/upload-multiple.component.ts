@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FileService } from '../file-service';
 import { HttpEventType } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-upload-multiple',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './upload-multiple.component.html',
   styleUrl: './upload-multiple.component.css',
 })

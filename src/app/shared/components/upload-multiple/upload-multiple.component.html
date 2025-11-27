@@ -19,14 +19,16 @@
     Subir archivos
   </button>
 
-  <!-- Lista de archivos seleccionados -->
-  <ul class="list-group mt-3" *ngIf="files.length > 0">
-    <li class="list-group-item" *ngFor="let f of files">
-      {{ f.name }} ({{ f.size / 1024 | number:'1.0-2' }} KB)
-    </li>
+  @if (files.length > 0) {
+  <ul class="list-group mt-3">
+    @for (f of files; track f) {
+      <li class="list-group-item">
+        {{ f.name }} ({{ f.size / 1024 | number:'1.0-2' }} KB)
+      </li>
+    }
   </ul>
+  }
 
-  <!-- Progreso -->
   <div class="mt-3" *ngIf="progress > 0">
     <label>Progreso: {{ progress }}%</label>
     <div class="progress">
