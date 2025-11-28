@@ -2,7 +2,6 @@
 
   <h2>Subir varios archivos PDF</h2>
 
-
   <input
     type="file"
     (change)="onFileSelected($event)"
@@ -20,24 +19,26 @@
   </button>
 
   @if (files.length > 0) {
-  <ul class="list-group mt-3">
-    @for (f of files; track f) {
-      <li class="list-group-item">
-        {{ f.name }} ({{ f.size / 1024 | number:'1.0-2' }} KB)
-      </li>
-    }
-  </ul>
+    <ul class="list-group mt-3">
+      @for (f of files; track f) {
+        <li class="list-group-item">
+          {{ f.name }} ({{ f.size / 1024 | number:'1.0-2' }} KB)
+        </li>
+      }
+    </ul>
   }
 
-  <div class="mt-3" *ngIf="progress > 0">
-    <label>Progreso: {{ progress }}%</label>
-    <div class="progress">
-      <div
-        class="progress-bar"
-        role="progressbar"
-        [style.width.%]="progress"
-      ></div>
+  @if (progress > 0) {
+    <div class="mt-3">
+      <label>Progreso: {{ progress }}%</label>
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="progress"
+        ></div>
+      </div>
     </div>
-  </div>
+  }
 
 </div>
